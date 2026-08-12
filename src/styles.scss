@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* Reset global para quitar los bordes blancos del navegador */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Evita que aparezca una barra de desplazamiento horizontal accidental */
+}
+
+/* Opcional: Aplicar box-sizing a todos los elementos para evitar que los paddings rompan el diseño */
+* {
+  box-sizing: border-box;
+}

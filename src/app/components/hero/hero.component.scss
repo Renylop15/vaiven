@@ -1,0 +1,172 @@
+/* --- Estilos de la Navbar --- */
+/* --- Estilos de la Navbar --- */
+.hero-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  
+  /* Cambiamos el azul por un negro suave semi-transparente */
+  background-color: rgba(25, 25, 25, 0.85); 
+  
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Nueva clase para controlar el tamaño de ambos logos */
+  .nav-logo {
+    height: 45px; /* Ajusta este valor si los logos se ven muy grandes o pequeños */
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+/* --- Estilos del Hero Editorial --- */
+/* --- Estilos del Hero Editorial con Parallax --- */
+.hero-editorial {
+  position: relative;
+  width: 100%;           /* Fuerza a que ocupe todo el ancho */
+  min-height: 100vh;
+  
+  /* Configuración del Parallax */
+  background-image: url('/assets/experiencia.jpg'); /* Asegúrate de que el nombre coincida */
+  background-attachment: fixed; /* Esta es la propiedad que crea la magia del parallax */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: #ffffff; /* Texto principal en blanco */
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 160px 20px 120px 20px; 
+  border-bottom: 1px solid #111111;
+  z-index: 1;
+
+  /* Capa oscura (Overlay) para que el texto sea completamente legible sobre la foto */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* Opacidad al 65%. Súbela a 0.8 si la foto es muy clara */
+    z-index: -1;
+  }
+
+  .overline {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #dddddd; /* Gris claro */
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.5); /* Sombra suave para dar profundidad */
+  }
+
+  .date-location {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+.pricing-minimal {
+  margin-bottom: 40px;
+  
+  .price-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #cccccc;
+    margin-bottom: 10px;
+  }
+
+  .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin: 0;
+    color: #ffffff;
+    
+    .currency {
+      font-size: 1.2rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+}
+.btn-editorial {
+  display: inline-block;
+  background-color: #ffffff; /* Fondo blanco */
+  color: #000000; /* Texto negro */
+  padding: 15px 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: 1px solid #ffffff;
+
+  &:hover {
+    background-color: #eeeeee;
+    transform: translateY(-2px);
+  }
+}
+
+.terms {
+  margin-top: 25px;
+  font-size: 0.75rem;
+  color: #bbbbbb; /* Gris más claro para que se lea sobre la imagen */
+  letter-spacing: 1px;
+}
+
+.terms {
+  margin-top: 25px;
+  font-size: 0.75rem;
+  color: #999999;
+  letter-spacing: 1px;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 768px) {
+  .hero-navbar {
+    padding: 15px 20px;
+  }
+  .hero-navbar .vancity-text {
+    font-size: 1rem;
+  }
+  .hero-navbar .vaiven-text {
+    font-size: 1.2rem;
+  }
+  .hero-editorial .title { 
+    font-size: 3rem; 
+  }
+}
