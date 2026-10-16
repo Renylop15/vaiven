@@ -60,12 +60,12 @@ export class Hero implements OnInit, OnDestroy {
     const utcNow = now.getTime() + (now.getTimezoneOffset() * 60000);
     const cstNow = new Date(utcNow - 6 * 3600000);
 
-    // Objetivo: 2:00 PM (14:00:00) GMT-6 del día en curso (20:00 UTC)
+    // Objetivo: 3:00 PM (15:00:00) GMT-6 del día en curso (21:00 UTC)
     let targetUtc = Date.UTC(
       cstNow.getFullYear(),
       cstNow.getMonth(),
       cstNow.getDate(),
-      20, 0, 0
+      21, 0, 0
     );
 
     let diff = targetUtc - now.getTime();
