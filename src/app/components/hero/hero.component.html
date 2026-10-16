@@ -12,10 +12,45 @@
   <p class="overline">Servicio de Movilidad</p>
   <h1 class="title">NESCAFÉ VAIVÉN</h1>
   <p class="date-location">17 de Octubre - Jardines de México</p>
+
+  <!-- Badge de Oferta Relámpago -->
+  <div class="flash-sale-badge">
+    <span class="flash-icon">⚡</span>
+    <span class="flash-text">OFERTA RELÁMPAGO</span>
+    <span class="flash-icon">⚡</span>
+  </div>
  
   <div class="pricing-minimal">
     <span class="price-label">Viaje Redondo</span>
-    <h2 class="price">$850.00 <span class="currency">MXN</span></h2>
+    <div class="price-container">
+      <span class="price-old">$850.00 MXN</span>
+      <h2 class="price">$750.00 <span class="currency">MXN</span></h2>
+    </div>
+    <span class="savings-tag">Ahorra $100 MXN por lugar</span>
+  </div>
+
+  <!-- Reloj Contador hasta las 2:00 PM (GMT-6) -->
+  <div class="countdown-wrapper">
+    <div class="countdown-header">
+      <span class="pulse-dot"></span>
+      <p class="countdown-label">Tiempo restante hasta las 2:00 PM (GMT-6)</p>
+    </div>
+    <div class="countdown-timer">
+      <div class="time-block">
+        <span class="time-value">{{ hours }}</span>
+        <span class="time-unit">HRS</span>
+      </div>
+      <span class="time-separator">:</span>
+      <div class="time-block">
+        <span class="time-value">{{ minutes }}</span>
+        <span class="time-unit">MIN</span>
+      </div>
+      <span class="time-separator">:</span>
+      <div class="time-block">
+        <span class="time-value">{{ seconds }}</span>
+        <span class="time-unit">SEG</span>
+      </div>
+    </div>
   </div>
 
   <a href="https://lab.vancity.mx/reserva-vaiven" class="btn-editorial">Reserva tu asiento</a>
