@@ -37,17 +37,17 @@
     </div>
     <div class="countdown-timer">
       <div class="time-block">
-        <span class="time-value">{{ hours }}</span>
+        <span class="time-value" #hoursEl>{{ hours() }}</span>
         <span class="time-unit">HRS</span>
       </div>
       <span class="time-separator">:</span>
       <div class="time-block">
-        <span class="time-value">{{ minutes }}</span>
+        <span class="time-value" #minutesEl>{{ minutes() }}</span>
         <span class="time-unit">MIN</span>
       </div>
       <span class="time-separator">:</span>
       <div class="time-block">
-        <span class="time-value">{{ seconds }}</span>
+        <span class="time-value" #secondsEl>{{ seconds() }}</span>
         <span class="time-unit">SEG</span>
       </div>
     </div>

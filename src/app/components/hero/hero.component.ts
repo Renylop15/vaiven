@@ -1,4 +1,15 @@
-import { Component, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  OnDestroy, 
+  PLATFORM_ID, 
+  inject, 
+  ChangeDetectorRef, 
+  NgZone, 
+  signal, 
+  ElementRef, 
+  ViewChild 
+} from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -10,19 +21,30 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 })
 export class Hero implements OnInit, OnDestroy {
   private platformId = inject(PLATFORM_ID);
+  private cdr = inject(ChangeDetectorRef);
+  private ngZone = inject(NgZone);
   private timerId: any = null;
 
-  hours: string = '00';
-  minutes: string = '00';
-  seconds: string = '00';
-  offerExpired: boolean = false;
+  @ViewChild('hoursEl') hoursEl?: ElementRef<HTMLElement>;
+  @ViewChild('minutesEl') minutesEl?: ElementRef<HTMLElement>;
+  @ViewChild('secondsEl') secondsEl?: ElementRef<HTMLElement>;
+
+  hours = signal('00');
+  minutes = signal('00');
+  seconds = signal('00');
+  offerExpired = signal(false);
 
   ngOnInit() {
     this.updateCountdown();
     if (isPlatformBrowser(this.platformId)) {
-      this.timerId = setInterval(() => {
-        this.updateCountdown();
-      }, 1000);
+      // Ejecutamos fuera y dentro de ngZone para asegurar ticks constantes cada segundo
+      this.ngZone.runOutsideAngular(() => {
+        this.timerId = setInterval(() => {
+          this.ngZone.run(() => {
+            this.updateCountdown();
+          });
+        }, 1000);
+      });
     }
   }
 
@@ -49,10 +71,12 @@ export class Hero implements OnInit, OnDestroy {
     let diff = targetUtc - now.getTime();
 
     if (diff <= 0) {
-      this.hours = '00';
-      this.minutes = '00';
-      this.seconds = '00';
-      this.offerExpired = true;
+      this.hours.set('00');
+      this.minutes.set('00');
+      this.seconds.set('00');
+      this.offerExpired.set(true);
+      this.syncDom('00', '00', '00');
+      this.cdr.detectChanges();
       return;
     }
 
@@ -60,9 +84,22 @@ export class Hero implements OnInit, OnDestroy {
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000) / 1000);
 
-    this.hours = h.toString().padStart(2, '0');
-    this.minutes = m.toString().padStart(2, '0');
-    this.seconds = s.toString().padStart(2, '0');
-    this.offerExpired = false;
+    const hStr = h.toString().padStart(2, '0');
+    const mStr = m.toString().padStart(2, '0');
+    const sStr = s.toString().padStart(2, '0');
+
+    this.hours.set(hStr);
+    this.minutes.set(mStr);
+    this.seconds.set(sStr);
+    this.offerExpired.set(false);
+
+    this.syncDom(hStr, mStr, sStr);
+    this.cdr.detectChanges();
+  }
+
+  private syncDom(h: string, m: string, s: string) {
+    if (this.hoursEl?.nativeElement) this.hoursEl.nativeElement.textContent = h;
+    if (this.minutesEl?.nativeElement) this.minutesEl.nativeElement.textContent = m;
+    if (this.secondsEl?.nativeElement) this.secondsEl.nativeElement.textContent = s;
   }
 }
