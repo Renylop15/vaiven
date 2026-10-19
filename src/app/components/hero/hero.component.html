@@ -3,57 +3,50 @@
   <!-- Navbar integrada directamente en el Hero -->
   <nav class="hero-navbar">
     <div class="nav-brand nav-left">
-        <img src="/assets/logo.png" alt="Logo Vancity" class="nav-logo">    </div>
+      <a href="https://vancity.mx">
+        <img src="/assets/logo.png" alt="Logo Vancity" class="nav-logo">
+      </a>
+    </div>
     <div class="nav-brand nav-right">
-     <img src="/assets/nescafe-vaiven.jpg" alt="Logo Vaivén" class="nav-logo">    </div>
+      <img src="/assets/nescafe-vaiven.jpg" alt="Logo Vaivén" class="nav-logo">
+    </div>
   </nav>
 
   <!-- Contenido principal del Hero -->
-  <p class="overline">Servicio de Movilidad</p>
+  <p class="overline">Servicio Oficial de Movilidad</p>
   <h1 class="title">NESCAFÉ VAIVÉN</h1>
-  <p class="date-location">17 de Octubre - Jardines de México</p>
+  <p class="date-location">17 de Octubre · Jardines de México</p>
 
-  <!-- Badge de Oferta Relámpago -->
-  <div class="flash-sale-badge">
-    <span class="flash-icon">⚡</span>
-    <span class="flash-text">OFERTA RELÁMPAGO</span>
-    <span class="flash-icon">⚡</span>
-  </div>
- 
-  <div class="pricing-minimal">
-    <span class="price-label">Viaje Redondo</span>
-    <div class="price-container">
-      <span class="price-old">$850.00 MXN</span>
-      <h2 class="price">$750.00 <span class="currency">MXN</span></h2>
-    </div>
-    <span class="savings-tag">Ahorra $100 MXN por lugar</span>
+  <!-- Badge de Evento Concluido -->
+  <div class="closed-status-badge">
+    <span class="status-star">✨</span>
+    <span class="status-text">EVENTO CONCLUIDO</span>
+    <span class="status-star">✨</span>
   </div>
 
-  <!-- Reloj Contador hasta las 3:00 PM (GMT-6) -->
-  <div class="countdown-wrapper">
-    <div class="countdown-header">
-      <span class="pulse-dot"></span>
-      <p class="countdown-label">Tiempo restante hasta las 3:00 PM (GMT-6)</p>
+  <!-- Card de Cierre y Agradecimiento -->
+  <div class="closed-hero-card">
+    <div class="closed-hero-icon-wrap">
+      <span class="closed-hero-icon">🚐</span>
     </div>
-    <div class="countdown-timer">
-      <div class="time-block">
-        <span class="time-value" #hoursEl>{{ hours() }}</span>
-        <span class="time-unit">HRS</span>
-      </div>
-      <span class="time-separator">:</span>
-      <div class="time-block">
-        <span class="time-value" #minutesEl>{{ minutes() }}</span>
-        <span class="time-unit">MIN</span>
-      </div>
-      <span class="time-separator">:</span>
-      <div class="time-block">
-        <span class="time-value" #secondsEl>{{ seconds() }}</span>
-        <span class="time-unit">SEG</span>
-      </div>
+    <h2 class="closed-hero-headline">¡Gracias por viajar con nosotros!</h2>
+    
+    <p class="closed-hero-message">
+      El servicio oficial de transporte para el festival <strong>NESCAFÉ VAIVÉN</strong> ha concluido con éxito. El portal de reservaciones y compra de boletos se encuentra oficialmente cerrado.
+    </p>
+
+    <div class="closed-hero-divider"></div>
+
+    <p class="closed-hero-note">
+      Agradecemos la confianza de todos los viajeros que nos acompañaron en Jardines de México. ¡Nos vemos en los próximos festivales y eventos!
+    </p>
+
+    <div class="closed-hero-cta">
+      <a href="https://vancity.mx" class="btn-editorial btn-closed-hero">
+        Descubre más en Vancity.mx
+      </a>
     </div>
   </div>
 
-  <a href="https://lab.vancity.mx/reserva-vaiven" class="btn-editorial">Reserva tu asiento</a>
-  
-  <p class="terms">Incluye peajes, estacionamientos y combustible.</p>
+  <p class="terms">#JuntosTodoElCamino · Vancity Mobility Experiences</p>
 </section>

@@ -1,5 +1,4 @@
 /* --- Estilos de la Navbar --- */
-/* --- Estilos de la Navbar --- */
 .hero-navbar {
   position: fixed;
   top: 0;
@@ -9,10 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  
-  /* Cambiamos el azul por un negro suave semi-transparente */
   background-color: rgba(25, 25, 25, 0.85); 
-  
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
@@ -24,29 +20,24 @@
     align-items: center;
   }
 
-  /* Nueva clase para controlar el tamaño de ambos logos */
   .nav-logo {
-    height: 45px; /* Ajusta este valor si los logos se ven muy grandes o pequeños */
+    height: 45px;
     width: auto;
     object-fit: contain;
   }
 }
 
-/* --- Estilos del Hero Editorial --- */
 /* --- Estilos del Hero Editorial con Parallax --- */
 .hero-editorial {
   position: relative;
-  width: 100%;           /* Fuerza a que ocupe todo el ancho */
+  width: 100%;
   min-height: 100vh;
-  
-  /* Configuración del Parallax */
-  background-image: url('/assets/experiencia.jpg'); /* Asegúrate de que el nombre coincida */
-  background-attachment: fixed; /* Esta es la propiedad que crea la magia del parallax */
+  background-image: url('/assets/experiencia.jpg');
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  color: #ffffff; /* Texto principal en blanco */
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
@@ -57,7 +48,6 @@
   border-bottom: 1px solid #111111;
   z-index: 1;
 
-  /* Capa oscura (Overlay) para que el texto sea completamente legible sobre la foto */
   &::before {
     content: '';
     position: absolute;
@@ -65,7 +55,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.65); /* Opacidad al 65%. Súbela a 0.8 si la foto es muy clara */
+    background-color: rgba(0, 0, 0, 0.65);
     z-index: -1;
   }
 
@@ -73,7 +63,7 @@
     font-size: 0.85rem;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #dddddd; /* Gris claro */
+    color: #dddddd;
     margin-bottom: 20px;
   }
 
@@ -84,206 +74,125 @@
     margin: 0 0 20px 0;
     letter-spacing: 2px;
     color: #ffffff;
-    text-shadow: 2px 4px 8px rgba(0,0,0,0.5); /* Sombra suave para dar profundidad */
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.5);
   }
 
   .date-location {
     font-size: 1.2rem;
     font-weight: 300;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     letter-spacing: 1px;
     font-style: italic;
     font-family: 'Playfair Display', serif;
   }
 }
 
-.flash-sale-badge {
+/* --- Badge de Cierre y Card de Agradecimiento --- */
+.closed-status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #ffb300, #ff8f00);
-  color: #000000;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  padding: 8px 22px;
+  padding: 8px 24px;
   border-radius: 50px;
   margin-bottom: 25px;
-  box-shadow: 0 4px 18px rgba(255, 179, 0, 0.4);
-  animation: pulse-glow 2.2s infinite ease-in-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 
-  .flash-icon {
-    font-size: 0.95rem;
+  .status-star {
+    font-size: 0.9rem;
   }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 4px 18px rgba(255, 179, 0, 0.4);
-  }
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 6px 24px rgba(255, 179, 0, 0.65);
-  }
-}
-
-.pricing-minimal {
-  margin-bottom: 25px;
-  
-  .price-label {
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #cccccc;
-    margin-bottom: 8px;
-  }
-
-  .price-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-  }
-
-  .price-old {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #a8a8a8;
-    text-decoration: line-through;
-    text-decoration-color: #ef4444;
-    text-decoration-thickness: 2.5px;
-    letter-spacing: 1px;
-    opacity: 0.85;
-  }
-
-  .price {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 700;
-    margin: 0;
-    color: #ffffff;
-    line-height: 1.1;
-    
-    .currency {
-      font-size: 1.3rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
-      color: #dddddd;
-    }
-  }
-
-  .savings-tag {
-    display: inline-block;
-    margin-top: 8px;
-    background-color: rgba(34, 197, 94, 0.15);
-    border: 1px solid rgba(34, 197, 94, 0.4);
-    color: #4ade80;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 20px;
-  }
-}
-
-/* --- Reloj Contador Regresivo --- */
-.countdown-wrapper {
-  margin: 10px 0 35px 0;
-  background: rgba(20, 20, 20, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  padding: 16px 28px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  max-width: 440px;
+.closed-hero-card {
+  max-width: 580px;
   width: 90%;
+  margin: 0 auto 30px auto;
+  background: rgba(18, 18, 18, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 35px 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
 
-  .countdown-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .closed-hero-icon-wrap {
     margin-bottom: 12px;
-
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #ef4444;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #ef4444;
-      animation: blink 1.2s infinite;
-    }
-
-    .countdown-label {
-      margin: 0;
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #e5e5e5;
-      font-weight: 600;
+    .closed-hero-icon {
+      font-size: 2.2rem;
     }
   }
 
-  .countdown-timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+  .closed-hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    letter-spacing: 0.5px;
+  }
 
-    .time-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      padding: 8px 12px;
-      min-width: 68px;
+  .closed-hero-message {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
 
-      .time-value {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #ffffff;
-        line-height: 1;
-      }
-
-      .time-unit {
-        font-size: 0.65rem;
-        letter-spacing: 1.5px;
-        color: #a3a3a3;
-        font-weight: 600;
-        margin-top: 5px;
-      }
-    }
-
-    .time-separator {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #ffb300;
-      margin-top: -12px;
+    strong {
+      color: #ffffff;
     }
   }
-}
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  .closed-hero-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    margin: 18px 0;
+  }
+
+  .closed-hero-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: #a8a8a8;
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+  }
+
+  .btn-closed-hero {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #0b1d3a;
+    font-weight: 700;
+    padding: 15px 36px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+
+    &:hover {
+      background-color: #f1f5f9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
+    }
+  }
 }
 
 .btn-editorial {
   display: inline-block;
-  background-color: #ffffff; /* Fondo blanco */
-  color: #000000; /* Texto negro */
+  background-color: #ffffff;
+  color: #000000;
   padding: 15px 50px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -304,7 +213,7 @@
 .terms {
   margin-top: 25px;
   font-size: 0.75rem;
-  color: #bbbbbb; /* Gris más claro para que se lea sobre la imagen */
+  color: #bbbbbb;
   letter-spacing: 1px;
 }
 
@@ -313,32 +222,19 @@
   .hero-navbar {
     padding: 15px 20px;
   }
-  .hero-navbar .vancity-text {
-    font-size: 1rem;
-  }
-  .hero-navbar .vaiven-text {
-    font-size: 1.2rem;
-  }
   .hero-editorial .title { 
     font-size: 2.8rem; 
   }
-  .pricing-minimal .price {
-    font-size: 3rem;
-  }
-  .pricing-minimal .price-old {
-    font-size: 1.3rem;
-  }
-  .countdown-wrapper {
-    padding: 14px 18px;
+  .closed-hero-card {
+    padding: 25px 20px;
     width: 95%;
 
-    .countdown-timer .time-block {
-      min-width: 56px;
-      padding: 6px 8px;
-
-      .time-value {
-        font-size: 1.7rem;
-      }
+    .closed-hero-headline {
+      font-size: 1.6rem;
+    }
+    .btn-closed-hero {
+      padding: 12px 24px;
+      font-size: 0.78rem;
     }
   }
 }
